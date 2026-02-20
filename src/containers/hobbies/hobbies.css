@@ -1,0 +1,349 @@
+/* ===== HOBBIES SECTION ===== */
+
+/* Hobby icon animations */
+.feature-icon {
+  display: inline-block;
+  font-size: 3rem;
+  line-height: 1;
+  transition: transform 0.2s;
+}
+
+/* Basketball: bounce + swish */
+.hobby-basketball {
+  animation: none;
+}
+.feature:hover .hobby-basketball {
+  animation: basketballDunk 0.8s ease forwards;
+}
+@keyframes basketballDunk {
+  0% { transform: translateY(0) rotate(0); }
+  30% { transform: translateY(-20px) rotate(-10deg); }
+  50% { transform: translateY(5px) rotate(5deg); }
+  70% { transform: translateY(-5px) rotate(-5deg); }
+  85% { transform: translateY(0) rotate(0); }
+  100% { transform: scale(0.9) rotate(360deg); } /* swoosh into basket */
+}
+
+/* Ping pong: dribble on paddle */
+.hobby-pingpong {
+  animation: none;
+}
+.feature:hover .hobby-pingpong {
+  animation: dribble 0.4s infinite ease-in-out;
+}
+@keyframes dribble {
+  0% { transform: translateY(0) scale(1); }
+  25% { transform: translateY(-15px) scale(1.1); }
+  50% { transform: translateY(0) scale(1); }
+  75% { transform: translateY(-8px) scale(1.05); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* Video games: controller vibrate */
+.hobby-videogames {
+  animation: none;
+}
+.feature:hover .hobby-videogames {
+  animation: vibrate 0.2s infinite;
+}
+@keyframes vibrate {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(2px, -2px); }
+  50% { transform: translate(-2px, 2px); }
+  75% { transform: translate(2px, 2px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Workout: weights go up and down */
+.hobby-workout {
+  animation: none;
+}
+.feature:hover .hobby-workout {
+  animation: lift 0.6s infinite alternate;
+}
+@keyframes lift {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-15px); }
+}
+.at__features {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  gap: 4rem;
+  background: var(--color-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Biking: pedaling motion */
+.hobby-biking {
+  animation: none;
+}
+.feature:hover .hobby-biking {
+  animation: pedal 0.6s infinite alternate ease-in-out;
+}
+@keyframes pedal {
+  0% { transform: rotate(-15deg) scale(1); }
+  100% { transform: rotate(15deg) scale(1.1); }
+}
+/* Music: rhythmic pulse */
+.hobby-music {
+  animation: none;
+}
+.feature:hover .hobby-music {
+  animation: musicPulse 1s infinite ease-in-out;
+}
+@keyframes musicPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Subtle animated background pattern */
+.at__features::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 70%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.03) 0%, transparent 50%);
+  transform: rotate(25deg);
+  pointer-events: none;
+  animation: floatBg 20s infinite alternate;
+}
+
+@keyframes floatBg {
+  0% { transform: rotate(25deg) translate(0, 0); }
+  100% { transform: rotate(25deg) translate(5%, 5%); }
+}
+
+/* Left column – heading */
+.at__features-heading {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+}
+
+.at__features-heading h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.2;
+  font-weight: 800;
+  font-family: var(--font-family);
+  background: var(--gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.8s ease;
+}
+
+.at__features-heading p {
+  color: var(--color-subtext);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: var(--font-family);
+  max-width: 300px;
+  opacity: 0.9;
+  animation: fadeInUp 1s ease;
+}
+
+/* Right column – hobby cards */
+.at__features-container {
+  flex: 1.2;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Individual card (the Feature component) */
+.at__features-container .feature {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1.5rem;
+  padding: 1.8rem 1.5rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.6s ease backwards;
+  /* Stagger animation via nth-child in JS or CSS, we'll add delay later */
+}
+
+.at__features-container .feature:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Icon style – we'll assume Feature component gets an icon prop */
+.at__features-container .feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+  transition: transform 0.2s;
+}
+
+.at__features-container .feature:hover .feature-icon {
+  transform: scale(1.1);
+}
+
+/* Title */
+.at__features-container .feature-title {
+  font-family: var(--font-family);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(135deg, #fff 0%, #ccc 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Text */
+.at__features-container .feature-text {
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Link to projects */
+.at__features-container > p:last-child {
+  grid-column: span 2;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.at__features-container > p a {
+  color: var(--color-subtext);
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+  padding-bottom: 2px;
+  transition: border 0.2s, color 0.2s;
+}
+
+.at__features-container > p a:hover {
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger children */
+.at__features-container .feature:nth-child(1) { animation-delay: 0.1s; }
+.at__features-container .feature:nth-child(2) { animation-delay: 0.2s; }
+.at__features-container .feature:nth-child(3) { animation-delay: 0.3s; }
+.at__features-container .feature:nth-child(4) { animation-delay: 0.4s; }
+
+/* Responsive adjustments */
+@media screen and (max-width: 1500px) {
+
+  .at__features-container .feature {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1.5rem;
+  padding: 1.8rem 1.5rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.6s ease backwards;
+}
+  .at__features {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  .at__features-heading {
+    align-items: center;
+    text-align: center;
+    margin-right: 0;
+    width: 100%;
+  }
+  .at__features-heading p {
+    text-align: center;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .at__features-container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .at__features-container {
+    grid-template-columns: 1fr; /* single column */
+    gap: 1.2rem;
+  }
+  .at__features-container .feature {
+    flex-direction: column;      /* stack title above text */
+    align-items: flex-start;     /* left-align text */
+    padding: 1.5rem;
+  }
+  .at__features-container .feature-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+  .at__features-container .feature-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .at__features-container .feature-icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.75rem;
+  }
+  .at__features-container > p:last-child {
+    grid-column: span 1;
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .at__features-heading h1 {
+    font-size: 2rem;
+  }
+  .at__features-heading p {
+    font-size: 0.95rem;
+  }
+  .at__features-container .feature {
+    padding: 1.2rem;
+  }
+  .at__features-container .feature-title {
+    font-size: 1.2rem;
+  }
+  .at__features-container .feature-text {
+    font-size: 0.85rem;
+  }
+  .at__features-container .feature-icon {
+    font-size: 2rem;
+  }
+  .at__features-container > p a {
+    font-size: 1rem;
+  }
+}

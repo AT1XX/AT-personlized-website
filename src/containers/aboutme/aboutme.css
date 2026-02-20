@@ -1,0 +1,333 @@
+/* aboutme.css – professional, interactive, with icons */
+
+.at__about {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 4rem;
+  background: var(--color-footer);
+  background: radial-gradient(circle at 30% -100%, #042c54 25%, rgba(4, 44, 84, 1) 85%, rgba(27, 120, 222, 1) 100%);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 20px;
+}
+
+/* Featured card */
+.at__about-feature {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.at__about-feature .feature {
+  margin: 0;
+  width: 100%;
+}
+
+.at__about-feature .feature-text {
+  max-width: 650px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Heading */
+.at__about-heading {
+  margin: 1.5rem 0 2rem;
+}
+
+.at__about-heading h1 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  line-height: 1.4;
+  font-weight: 600;
+  font-family: var(--font-family);
+  background: var(--gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  max-width: 1300px;
+}
+
+/* Add separation between the two columns */
+.categories-row {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.categories-row .at__about-category:first-child {
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  padding-right: 2rem;
+}
+
+/* Remove the border on smaller screens */
+@media screen and (max-width: 900px) {
+  .categories-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .categories-row .at__about-category:first-child {
+    border-right: none;
+    padding-right: 0;
+  }
+}
+/* Category headings */
+.at__about-category {
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.at__about-category.full-width {
+  width: 100%;
+}
+
+.category-title {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: var(--font-family);
+  margin-bottom: 1.5rem;
+  background: var(--gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: left;
+}
+
+/* Container for skill cards – uses grid for even spacing */
+.at__about-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* Individual skill card */
+.skill-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem 1rem;
+  transition: all 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.skill-icon {
+  font-size: 2.5rem;
+  color: #fff;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.skill-card:hover .skill-icon {
+  transform: scale(1.1);
+  color: var(--color-subtext);
+}
+
+.skill-title {
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+.skill-bar {
+  width: 0;
+  height: 2px;
+  background: var(--gradient-bar);
+  transition: width 0.3s ease;
+  margin-top: 0.25rem;
+}
+
+.skill-card:hover .skill-bar {
+  width: 80%;
+}
+
+/* Hobbies link */
+.at__about-hobbies {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.at__about-hobbies p {
+  font-family: var(--font-family);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-subtext);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.at__about-hobbies p:hover {
+  opacity: 0.8;
+}
+
+.at__about-hobbies a {
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px dotted currentColor;
+  padding-bottom: 2px;
+}
+
+/* Responsive */
+@media screen and (max-width: 900px) {
+  .categories-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .at__about {
+    padding: 2rem 2rem;
+  }
+  .at__about-heading h1 {
+    font-size: 1.8rem;
+  }
+  .at__about-container {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+  .skill-card {
+    padding: 1rem 0.5rem;
+  }
+  .skill-icon {
+    font-size: 2rem;
+  }
+  .category-title {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .at__about {
+    padding: 1.5rem 1rem;
+  }
+  .skill-card {
+    padding: 1rem 0.5rem;
+  }
+}
+
+/* Heading layout – image on the right with large gap */
+.at__about-heading {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 2rem 0 3rem;
+  gap: 40rem; /* huge gap on desktop – adjust if needed */
+}
+
+/* Simple GIF styling */
+.profile-gif {
+  width: 200px;
+  height: auto;
+  display: block;
+  flex-shrink: 0; /* prevent GIF from shrinking */
+}
+
+/* Responsive */
+
+@media screen and (max-width: 1500px) {
+  .at__about-heading {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem; /* normal gap on mobile */
+  }
+  .profile-gif {
+    width: 150px;
+    margin: 0 auto; /* center the GIF */
+  }
+}
+@media screen and (max-width: 900px) {
+  .at__about-heading {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem; /* normal gap on mobile */
+  }
+  .profile-gif {
+    width: 150px;
+    margin: 0 auto; /* center the GIF */
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .profile-gif {
+    width: 120px;
+  }
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+
+/* Heading stack earlier to avoid too-wide gap on medium screens */
+@media screen and (max-width: 1200px) {
+  .at__about-heading {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  .profile-gif {
+    width: 150px;
+    margin: 0 auto;
+  }
+}
+
+/* Compact skill cards on tablets */
+@media screen and (max-width: 700px) {
+  .at__about {
+    padding: 2rem 2rem;
+  }
+  .at__about-heading h1 {
+    font-size: 1.8rem;
+  }
+  .at__about-container {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 0.8rem;
+  }
+  .skill-card {
+    padding: 0.8rem 0.4rem;
+  }
+  .skill-icon {
+    font-size: 1.8rem;
+  }
+  .skill-title {
+    font-size: 0.9rem;
+  }
+  .category-title {
+    font-size: 1.6rem;
+  }
+}
+
+/* Even smaller for phones */
+@media screen and (max-width: 550px) {
+  .at__about {
+    padding: 1.5rem 1rem;
+  }
+  .at__about-container {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 0.5rem;
+  }
+  .skill-card {
+    padding: 0.6rem 0.3rem;
+  }
+  .skill-icon {
+    font-size: 1.5rem;
+  }
+  .skill-title {
+    font-size: 0.8rem;
+  }
+  .category-title {
+    font-size: 1.4rem;
+  }
+  .profile-gif {
+    width: 120px;
+  }
+}

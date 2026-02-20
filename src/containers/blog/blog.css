@@ -1,0 +1,502 @@
+/* ===== PROJECTS SECTION ===== */
+.at__blog {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+}
+
+/* Heading */
+.at__blog-heading {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 4rem;
+}
+
+.at__blog-heading h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.2;
+  font-family: var(--font-family);
+  font-weight: 800;
+  background: var(--gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Grid container */
+.at__blog-container {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+/* Featured project (left column) */
+.at__blog-container_groupC {
+  flex: 0.75;
+}
+/* Glow effect for featured project card */
+.at__blog-container_groupC .at__blog-container_article {
+  box-shadow: 0 0 15px rgba(255, 72, 32, 0.25); /* soft orange glow */
+  transition: box-shadow 0.3s ease;
+}
+
+.at__blog-container_groupC .at__blog-container_article:hover {
+  box-shadow: 0 0 25px rgba(255, 72, 32, 0.4); /* stronger on hover */
+}
+
+/* Project cards grid (right column) */
+.at__blog-container_groupB {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+/* ===== PROJECT CARD ===== */
+.at__blog-container_article {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.at__blog-container_article:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Image container */
+.at__blog-container_article-image {
+  width: 100%;
+  height: 240px; /* fixed height for consistency */
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+.at__blog-container_article-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.at__blog-container_article:hover .at__blog-container_article-image img {
+  transform: scale(1.05);
+}
+
+/* Content area */
+.at__blog-container_article-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  height: 100%;
+  flex: 1;
+}
+
+/* Date label */
+.at__blog-container_article-content p:first-of-type {
+  font-family: var(--font-family);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5rem;
+}
+
+/* Project title */
+.at__blog-container_article-content h3 {
+  font-family: var(--font-family);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #fff;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.at__blog-container_article-content h3:hover {
+  color: var(--color-subtext);
+}
+
+/* GitHub link */
+.at__blog-container_article-content a {
+  text-decoration: none;
+  margin-top: 1rem;
+}
+
+.at__blog-container_article-content a p {
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-subtext);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: gap 0.2s;
+}
+
+.at__blog-container_article-content a p::after {
+  content: '→';
+  font-size: 1.2rem;
+  transition: transform 0.2s;
+}
+
+.at__blog-container_article-content a:hover p {
+  gap: 0.75rem;
+}
+
+.at__blog-container_article-content a:hover p::after {
+  transform: translateX(4px);
+}
+
+/* Contact CTA at bottom */
+.at__blog-contact {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.at__blog-contact p {
+  font-family: var(--font-family);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-subtext);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.at__blog-contact p:hover {
+  opacity: 0.8;
+}
+
+.at__blog-contact a {
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px dotted currentColor;
+  padding-bottom: 2px;
+}
+
+.at__footer-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    width: 100%;
+    text-align: left;
+}
+
+.at__footer1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+/* Carousel modifications for .at__blog-container_groupB */
+.at__blog-container_groupB {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* prevents overflow */
+}
+
+/* Header with title and arrows */
+.carousel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-right: 0.5rem;
+}
+
+.carousel-title {
+  font-family: var(--font-family);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  background: var(--gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.carousel-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.carousel-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  outline: none;
+}
+
+.carousel-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.carousel-btn:active {
+  transform: scale(0.95);
+}
+
+/* Horizontal scrollable container */
+.projects-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 2rem;
+  padding-bottom: 0.5rem;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+.projects-carousel::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.projects-carousel::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.projects-carousel::-webkit-scrollbar-thumb {
+  background: var(--color-subtext);
+  border-radius: 10px;
+}
+
+/* Each carousel item */
+.carousel-item {
+  flex: 0 0 auto;
+  width: calc(50% - 1rem); /* for 2 cards visible at once, adjust as needed */
+  max-width: 300px; /* prevent cards from getting too wide */
+}
+
+/* Ensure ProjectCard takes full width of its container */
+.carousel-item .at__blog-container_article {
+  width: 100%;
+}
+
+/* GitHub Contributions Section */
+.at__github-contributions {
+  margin-top: 5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.at__github-contributions .contributions-text {
+  flex: 1;
+  text-align: left;
+}
+
+.at__github-contributions h2 {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  margin-bottom: 0.5rem;
+  background: var(--gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: var(--font-family);
+  font-weight: 800;
+}
+
+.at__github-contributions .subtitle {
+  color: var(--color-subtext);
+  font-family: var(--font-family);
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.contributions-card {
+  flex: 2;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem 1rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  max-width: 1350px;
+  transition: transform 0.3s ease, border-color 0.3s;
+}
+
+.contributions-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px);
+}
+
+.github-chart {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  justify-content: center;
+}
+
+/* GitHub chart image with invert filter */
+.github-chart img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.5rem;
+  background: transparent;
+  filter: invert(1); /* Inverts colors: dark text becomes light */
+}
+
+/* Responsive */
+@media screen and (max-width: 900px) {
+  .at__github-contributions {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .at__github-contributions .contributions-text {
+    text-align: center;
+  }
+  .contributions-card {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .at__github-contributions {
+    margin-top: 3rem;
+  }
+  .contributions-card {
+    padding: 1rem 0.5rem;
+  }
+  .github-chart img {
+    max-width: 100%;
+  }
+}
+
+/* Responsive adjustments */
+
+@media screen and (max-width: 1200px) {
+  .carousel-item {
+    width: 260px;
+  }
+}
+@media screen and (max-width: 990px) {
+  .at__blog-container {
+    flex-direction: column-reverse;
+  }
+  .at__blog-container_groupC {
+    width: 100%;
+    margin-top: 2rem;
+  }
+  .carousel-item {
+    width: 240px; /* fixed width for tablets */
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .carousel-item {
+    width: 260px;
+  }
+  .carousel-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .carousel-controls {
+    align-self: flex-end;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .carousel-item {
+  flex: 0 0 auto;
+  width: 320px; /* slightly wider for the extra content */
+  max-width: 85vw;
+}
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media screen and (max-width: 990px) {
+  .at__blog-container {
+    flex-direction: column-reverse;
+  }
+
+  .at__blog-container_groupC {
+    margin: 0;
+    width: 100%;
+  }
+
+  .at__blog-container_groupC .at__blog-container_article {
+    width: 100%;
+    flex-direction: row; /* featured card becomes horizontal on tablet */
+  }
+
+  .at__blog-container_groupC .at__blog-container_article-image {
+    width: 40%;
+    height: auto;
+    min-height: 200px;
+  }
+
+  .at__blog-container_groupC .at__blog-container_article-content {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .at__blog-container_groupB {
+    grid-template-columns: 1fr;
+  }
+
+  .at__blog-container_groupC .at__blog-container_article {
+    flex-direction: column; /* back to vertical on mobile */
+  }
+
+  .at__blog-container_groupC .at__blog-container_article-image,
+  .at__blog-container_groupC .at__blog-container_article-content {
+    width: 100%;
+  }
+
+  .at__blog-heading h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .at__blog-container_article-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .at__blog-contact p {
+    font-size: 1rem;
+  }
+}

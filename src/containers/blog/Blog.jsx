@@ -11,16 +11,52 @@ const Blog = () => {
   const projects = [
     {
       id: 1,
+      imgUrl: "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWJkc3hsbWhwMXB6MjQwc3hwZTRjZWhwZDc1YnZvZjcxMDk2eDl5YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/4PLVKYah7HvOoLNBQW/giphy.gif", 
+      date: 'Jan 2025 – Apr 2025',
+      title: 'Real‑Time Smart Parking System',
+      description: 'A cloud‑based smart parking system with real‑time availability, reservations, and dynamic pricing using Azure gRPC services.',
+      technologies: ['React', 'TypeScript', 'Firebase', 'gRPC', 'Docker', 'Azure'],
+      githubLink: 'https://github.com/dylanccli/Smart-Parking-System',
+    },
+    {
+      id: 2,
+      imgUrl: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExams5N2EzOXNyeXV2OWJxYXB5d3FkNWZ4azNhNGZrbzN6cGY3cGh2eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XV1BW1VggErnucTVMp/giphy.gif",
+      date: 'Sep 2024 – Apr 2025',
+      title: 'Deep Learning Gesture Sync & Engagement',
+      description: 'Built a real‑time computer vision system for body‑pose synchronization and engagement detection with 93% accuracy.',
+      technologies: ['Python', 'MediaPipe', 'OpenCV', 'TensorFlow', 'Flask', 'MobileNetV2'],
+      githubLink: 'https://github.com/AT1XX/sync',
+    },
+    {
+      id: 3,
+      imgUrl: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2ljNWZwbG5oaDFjZmVoMGZqOTd3MDNpanU4dXRmODlld213aHF1NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fGCdJutwQwtmvqVNza/giphy.gif",
+      date: 'Sep 2024 – Dec 2024',
+      title: 'ASL Hand Sign Translator',
+      description: 'Created a real‑time ASL translator using transfer learning on ResNet‑50, reaching 94% accuracy across 24 hand signs.',
+      technologies: ['Python', 'OpenCV', 'MediaPipe', 'ResNet-50', 'Transfer Learning'],
+      githubLink: 'https://github.com/AT1XX/CV-ASL',
+    },
+    {
+      id: 4,
+      imgUrl: "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbWVzajlmZnhteTZuY2ptamFwNG41OWZ1bnB5MHJ6dW4xeXZnYzZqdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YWUvOugDNUBS0MTqkv/giphy.gif",
+      date: 'Sep 2023 – Dec 2023',
+      title: 'Drone Simulation (JavaFX)',
+      description: 'Led drone control implementation in a 12‑person Scrum team, reducing integration issues by 30% through cross‑team coordination.',
+      technologies: ['JavaFX', 'Java', 'Python', 'HTML', 'C++', 'Scrum'],
+      githubLink: 'https://github.com/AT1XX/Drone-mission',
+    },
+  {
+      id: 5,
       imgUrl: pic1,
       date: 'Winter 2022',
       title: 'BookStore Application',
       description: 'A full-stack web app for managing books, users, and orders with authentication and payment integration.',
       technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
       githubLink: 'https://github.com/AT1XX/Bookstore-App',
-      demoLink: 'https://bookstore-demo.com' // optional
+      //demoLink: 'https://bookstore-demo.com' // optional
     },
     {
-      id: 2,
+      id: 6,
       imgUrl: pic2,
       date: 'Fall 2022',
       title: 'Library Database',
@@ -29,7 +65,7 @@ const Blog = () => {
       githubLink: 'https://github.com/AT1XX/Library-database'
     },
     {
-      id: 3,
+      id: 7,
       imgUrl: pic3,
       date: 'Spring 2023',
       title: 'Personalized Website',
@@ -38,7 +74,7 @@ const Blog = () => {
       githubLink: 'https://github.com/AT1XX/AT-personlized-website'
     },
     {
-      id: 4,
+      id: 8,
       imgUrl: pic4,
       date: 'Fall 2019',
       title: 'Snake and Ladder',
@@ -46,24 +82,7 @@ const Blog = () => {
       technologies: ['Java', 'Swing', 'OOP'],
       githubLink: 'https://github.com/AT1XX/Snake-and-ladder'
     },
-    {
-      id: 5,
-      imgUrl: pic4,
-      date: 'Fall 2019',
-      title: 'Snake and Ladder',
-      description: 'A classic board game implemented in Java with a graphical user interface and multiplayer support.',
-      technologies: ['Java', 'Swing', 'OOP'],
-      githubLink: 'https://github.com/AT1XX/Snake-and-ladder'
-    },
-    {
-      id: 6,
-      imgUrl: pic4,
-      date: 'Fall 2019',
-      title: 'Snake and Ladder',
-      description: 'A classic board game implemented in Java with a graphical user interface and multiplayer support.',
-      technologies: ['Java', 'Swing', 'OOP'],
-      githubLink: 'https://github.com/AT1XX/Snake-and-ladder'
-    },
+    
   ];
 
   const scroll = (direction) => {
@@ -86,7 +105,7 @@ const Blog = () => {
         {/* Featured project (left column) */}
         <div className="at__blog-container_groupC">
           <ProjectCard
-            imgUrl={pic0}
+            imgUrl="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGp0cXo1eTE0dW9xYzg3NmhxdWptZjNtOGR0bjA5ODlkNTQ3Y2p5eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26tn33aiTi1jkl6H6/giphy.gif"
             date="2018-PRESENT"
             title="Want to see all my projects? Let us explore..."
             description="Visit my GitHub to explore all my repositories, including personal projects, academic work, and contributions."
